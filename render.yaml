@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: inventory-backend
+    env: docker
+    rootDir: backend
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: ENVIRONMENT
+        value: production
+      - key: PORT
+        value: 8000
